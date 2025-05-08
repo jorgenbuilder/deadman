@@ -79,7 +79,7 @@ actor DeadmanSwitch {
     state := "live";
 
     // Set up repeating timer
-    let timer = Timer.recurringTimer(#seconds(5), check_expiration);
+    let timer = Timer.recurringTimer<system>(#seconds(5), check_expiration);
     timer_id := ?timer;
 
     Debug.print("Secret configured with timeout: " # Nat.toText(timeout_value) # " " # debug_show (unit));
